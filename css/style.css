@@ -94,6 +94,12 @@ clases index y miPerfil respectivamente */
     height: 150px;
     width: 150px;
     margin: 20px;
+    transition: background-color 0.1s;
+}
+
+.index .perfil:hover{
+    transform: scale(1.1) rotate(15deg);
+    background-color: #99c5dd;
 }
 
 .index .fotografia{
