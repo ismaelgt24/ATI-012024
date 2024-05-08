@@ -1,0 +1,178 @@
+/* NOTA: Para poder tener distincion al aplicar los estilos
+se identifico cada etiqueta <html> de los archivos index y perfil con las 
+clases index y miPerfil respectivamente */
+
+/* Estilos para index.html */
+.index * {
+    margin:0px;
+    padding: 0px;
+    font-family: Helvetica;
+}
+
+.index nav {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    background-color: #8DACE9;
+}
+
+.index nav ul{
+    background-color: #8DACE9;
+    list-style-type: none;
+    height: 40px;
+    padding: 1%;
+    margin-right: 1px;
+    border-right: solid white 1px;
+    float: left;
+    /* display: inline-block; */
+    color: white;
+    vertical-align: middle;
+    /* border: black solid; */
+}
+
+.index nav li{
+    vertical-align: middle;
+}
+
+.index .materia{
+    width: 31%;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 30px;
+}
+
+.index .saludo{
+    width: 31%;
+    line-height: 40px;
+    vertical-align: middle;/*Esta propiedad no funciona*/
+    text-align: center;
+    font-size: 15px;
+}
+
+.index .busqueda{
+    width: 31%;
+    text-align: right;
+    margin: 0px;
+    border-right: none;
+}
+
+.index .busqueda input{
+    vertical-align: middle;
+    border: #8DACE9;
+    margin-right: 2px;
+    padding-left: 5px;
+    height: 30px;
+}
+
+.index .busqueda button{
+    color: #8DACE9;
+    border: #8DACE9;
+    vertical-align: middle;
+    margin: 2px;
+    padding:2px;
+    height: 30px;
+}
+
+.index body{
+    text-align: center;
+}
+
+.index .fila{
+    clear: both;
+    text-align: center;
+}
+
+.index .perfil{
+    color: #8DACE9;
+    display: inline-block;
+    font-size: 17px;
+    text-align: center;
+    background-color: #F5F5F5;
+    box-shadow: gray 2px 2px 2px;
+    /* float: left; */
+    height: 150px;
+    width: 150px;
+    margin: 20px;
+    transition: background-color 0.1s;
+}
+
+.index .perfil:hover{
+    transform: scale(1.1) rotate(15deg);
+    background-color: #99c5dd;
+}
+
+.index .fotografia{
+    margin: 10px;
+}
+
+.index footer{
+    height: 70px;
+    line-height: 70px;
+    background-color: #8DACE9;
+    color: black;
+    text-align: center;
+    clear: both;
+}
+
+
+/* Estilos para perfil.html */
+
+/* Propiedades de la imagen: */
+.miPerfil .MiFoto{
+    border-top-left-radius: 50px;
+    float: left;
+    margin-right: 20px;
+    width: 281px;
+}
+
+/* Estilo de la tarjeta con mis datos */
+.miPerfil .MisDatos {
+    width: 700px;
+    padding: 10px;
+    /* margin-left: 1px; */
+    border: black solid;
+    float: left;
+    box-shadow: 3px 3px 3px;
+}
+
+/* Titulo */
+.miPerfil .MisDatos .miNombre{
+    color: blue;
+
+}
+
+/* Mi descripcion */
+.miPerfil .MisDatos .descripcion{
+    /* display: inline; */
+    text-align: justify;
+    font-family: arial;
+    font-style: italic;
+}
+
+/* Mis preferencias */
+.miPerfil .MisDatos .misPreferencias *{
+    /* padding: 10px; */
+    float: left;
+    padding: 10px;
+}
+
+/* Esto es para que el parrafo con el contacto este
+despues de un salto de linea */
+.miPerfil .MisDatos p{
+    clear: both;
+}
+
+
+/* Estilos para el enlace al correo */
+.miPerfil a {
+    /* enlace sin clickear */
+    color: orange;
+}
+
+.miPerfil a:visited {
+    /*Enlace Clickeado */
+    color: red;
+}
+
+
