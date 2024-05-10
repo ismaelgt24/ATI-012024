@@ -1,71 +1,78 @@
-/* NOTA: Para poder tener distincion al aplicar los estilos
-se identifico cada etiqueta <html> de los archivos index y perfil con las 
-clases index y miPerfil respectivamente */
-
 /* Estilos para index.html */
+
+/* Estilos independientes del tamaño de la pantalla: */
 .index * {
     margin:0px;
     padding: 0px;
     font-family: Helvetica;
 }
 
-.index nav {
-    width: 100%;
+.index body{
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
     height: 70px;
-    text-align: center;
+    width: 100%;
+    background-color: #8DACE9;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
     background-color: #8DACE9;
 }
 
-.index nav ul{
+nav ul{
     background-color: #8DACE9;
     list-style-type: none;
-    height: 40px;
-    padding: 1%;
-    margin-right: 1px;
     border-right: solid white 1px;
-    float: left;
-    /* display: inline-block; */
     color: white;
     vertical-align: middle;
-    /* border: black solid; */
+    height: 60px;
+    display:flex;
+    align-items: center;
 }
 
-.index nav li{
-    vertical-align: middle;
-}
-
-.index .materia{
-    width: 31%;
-    line-height: 40px;
-    vertical-align: middle;
-    text-align: left;
+.materia{
+    width: 33%;
+    padding-left: 10px;
+    display: flex;
+    justify-content: left;
     font-size: 30px;
 }
 
-.index .saludo{
-    width: 31%;
-    line-height: 40px;
-    vertical-align: middle;/*Esta propiedad no funciona*/
-    text-align: center;
+.saludo{
+    width: 33%;
     font-size: 15px;
+    justify-content: center;
 }
 
-.index .busqueda{
-    width: 31%;
-    text-align: right;
+.busqueda{
+    width: 33%;
+    display: flex;
+    justify-content: right;
     margin: 0px;
     border-right: none;
 }
 
-.index .busqueda input{
-    vertical-align: middle;
+.busqueda input{
     border: #8DACE9;
     margin-right: 2px;
     padding-left: 5px;
+    padding-right: 0px;
     height: 30px;
 }
 
-.index .busqueda button{
+.busqueda button{
     color: #8DACE9;
     border: #8DACE9;
     vertical-align: middle;
@@ -74,105 +81,333 @@ clases index y miPerfil respectivamente */
     height: 30px;
 }
 
-.index body{
-    text-align: center;
+.main{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+    place-content: center;
 }
 
-.index .fila{
-    clear: both;
-    text-align: center;
-}
-
-.index .perfil{
+.perfil{
     color: #8DACE9;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 17px;
     text-align: center;
     background-color: #F5F5F5;
     box-shadow: gray 2px 2px 2px;
-    /* float: left; */
     height: 150px;
     width: 150px;
     margin: 20px;
     transition: background-color 0.1s;
 }
 
-.index .perfil:hover{
+.fotografia{
+    margin: 10px;
+}
+
+/* Animacion: */
+.perfil:hover{
     transform: scale(1.1) rotate(15deg);
     background-color: #99c5dd;
 }
 
-.index .fotografia{
-    margin: 10px;
+
+/* Adaptaciones al tamaño de la pantalla con media Query's: */
+/*Pantallas grandes & ordenadores de escritorio */
+@media (min-width:1025px) and (max-width:1200px) {
+    .main{
+        grid-template-columns: auto auto auto auto;
+        justify-content: space-between;
+        place-content: center;
+    }
+    .perfil{
+        /* display: inline-block; */
+        font-size: 17px;
+        height: 150px;
+        width: 150px;
+        margin: 20px;
+    }
+    .fotografia{
+        margin: 10px;
+    }  
 }
 
-.index footer{
-    height: 70px;
-    line-height: 70px;
-    background-color: #8DACE9;
-    color: black;
-    text-align: center;
-    clear: both;
+/* pantallas pequeñas & ordenadores portátiles */
+@media (min-width:769px) and (max-width:1024px) {
+    .main{
+        grid-template-columns: auto auto auto;
+    }
+    .perfil{
+        /* display: inline-block; */
+        font-size: 17px;
+        height: 150px;
+        width: 150px;
+        margin: 20px;
+    }
+    .fotografia{
+        margin: 10px;
+    } 
+}
+
+/*Pantalla de iPads & tablets */
+@media (min-width: 481px) and (max-width:768px) {
+    .main{
+        grid-template-columns: auto auto;
+    }
+    .materia{
+        padding-left: 3px;
+        font-size: 17px;
+    }
+
+    .busqueda input{
+        margin-right: 2px;
+        padding-left: 2px;
+        padding-right: 0px;
+        padding-top: 0px;
+        font-size: 10px;
+        height: 20px;
+        width: 80px;
+    }
+    
+    .busqueda button{
+        margin: 0px;
+        padding:0px;
+        height: 20px;
+        font-size: 10px;
+        width: 50px;
+    }
+    .saludo{
+        /* padding: 5px; */
+        font-size: 12px;
+    }
+    .perfil{
+        /* display: inline-block; */
+        font-size: 17px;
+        height: 150px;
+        width: 150px;
+        margin: 20px;
+    }
+    .fotografia{
+        margin: 10px;
+    }
+    
+    footer{
+        font-size: 12px;
+    }
+}
+
+/*Pantalla de Dispositivos Moviles: */
+ @media /*(min-width:320px) and */(max-width:480px) {
+
+    .main{
+        grid-template-columns: auto;
+    }
+
+    .materia{
+        padding-left: 3px;
+        font-size: 13px;
+    }
+
+    .saludo{
+        font-size: 9px;
+    }
+    .busqueda{
+        align-items: center;
+    }
+
+    .busqueda input{
+        margin-right: 2px;
+        padding-left: 2px;
+        padding-right: 0px;
+        font-size: 10px;
+        height: 20px;
+        width: 60px;
+    }
+    
+    .busqueda button{
+        margin: 0px;
+        margin-right: 3px;
+        padding:0px;
+        height: 20px;
+        font-size: 10px;
+        width: 30px;
+    }
+
+    footer{
+        font-size: 8px;
+    }
+    
 }
 
 
 /* Estilos para perfil.html */
 
-/* Propiedades de la imagen: */
-.miPerfil .MiFoto{
-    border-top-left-radius: 50px;
-    float: left;
-    margin-right: 20px;
-    width: 281px;
+/* Reglas de estilo independientes del tamaño de la pantalla: */
+.tarjeta{
+    display: flex;
+    /* Como en las instrucciones del laboratorio el perfil esta
+    alineado a la izquierda se decidio ponerlo de la misma forma. */
+    justify-content: left;
 }
 
-/* Estilo de la tarjeta con mis datos */
-.miPerfil .MisDatos {
-    width: 700px;
+/* Propiedades de la imagen (En cualquier tamaño): */
+.MiFoto{
+    border-top-left-radius: 50px;
+    margin-right: 20px;
+    width: 281px;
+    height: auto;
+}
+
+/* Estilo de la tarjeta con mis datos: */
+.MisDatos {
+    display: flex;
+    flex-direction: column;
+    width: 52%;
     padding: 10px;
-    /* margin-left: 1px; */
     border: black solid;
-    float: left;
     box-shadow: 3px 3px 3px;
 }
 
-/* Titulo */
-.miPerfil .MisDatos .miNombre{
-    color: blue;
-
+/* Estilo de los elementos en la tarjeta de datos: */
+.MisDatos *{
+    margin: 10px;
 }
 
-/* Mi descripcion */
-.miPerfil .MisDatos .descripcion{
-    /* display: inline; */
+/* Estilo del titulo */
+.MisDatos .miNombre{
+    text-align: left;
+    color: blue;
+}
+
+/* Estilo de mi descripcion */
+.MisDatos .descripcion{
     text-align: justify;
     font-family: arial;
     font-style: italic;
 }
 
-/* Mis preferencias */
-.miPerfil .MisDatos .misPreferencias *{
-    /* padding: 10px; */
-    float: left;
+/* Estilo de mis preferencias */
+.MisDatos .misPreferencias{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
     padding: 10px;
 }
 
-/* Esto es para que el parrafo con el contacto este
-despues de un salto de linea */
-.miPerfil .MisDatos p{
-    clear: both;
-}
-
-
 /* Estilos para el enlace al correo */
-.miPerfil a {
+a {
     /* enlace sin clickear */
     color: orange;
 }
-
-.miPerfil a:visited {
+a:visited {
     /*Enlace Clickeado */
     color: red;
 }
 
+.micorreo{
+    text-align: left;
+}
 
+/*Pantalla de Dispositivos Moviles: */
+@media (min-width:320px) and (max-width:480px) {
+
+    .MiFoto{
+        width: 25%;
+        height: auto;
+        margin-right: 0.2rem;
+        src: url("28073233Pequena.jpg");
+    }
+
+    .MisDatos * {
+        margin: 0.1rem;
+    }
+    .miNombre{
+        font-size: 1em;
+    }
+    .descripcion, .misPreferencias {
+        font-size: 0.3em;
+    }
+
+    .micorreo, .micorreo a{
+        /* background-color: red; */
+        font-size: 0.3em;
+    }
+}
+
+/*Pantalla de iPads & tablets */
+@media (min-width:481px) and (max-width:768px) {
+
+    .MiFoto{
+        width: 25%;
+        height: auto;
+        margin-right: 0.3rem;
+        src: url("28073233Pequena.jpg");
+    }
+
+    .MisDatos * {
+        margin: 0.2rem;
+    }
+    .miNombre{
+        font-size: 1.5rem;
+    }
+    .descripcion, .misPreferencias {
+        font-size: 0.6rem;
+    }
+
+    .micorreo, .micorreo a{
+        /* background-color: red; */
+        font-size: 0.55rem;
+    }
+}
+
+/* pantallas pequeñas & ordenadores portátiles */
+@media (min-width:769px) and (max-width:1024px) {
+
+    .MiFoto{
+        width: 25%;
+        height: auto;
+        margin-right: 0.3rem;
+        src: url("28073233Grande.jpg");
+    }
+
+    .MisDatos * {
+        margin: 0.2rem;
+    }
+    .miNombre{
+        font-size: 2rem;
+    }
+    .descripcion, .misPreferencias {
+        font-size: 0.9rem;
+    }
+
+    .micorreo, .micorreo a{
+        /* background-color: red; */
+        font-size: 0.7rem;
+    }
+}
+
+/*Pantallas grandes & ordenadores de escritorio */
+@media (min-width:1025px) and (max-width:1200px){
+
+    .MiFoto{
+        width: 25%;
+        height: auto;
+        margin-right: 0.3rem;
+        src: url("28073233Grande.jpg");
+    }
+
+    .MisDatos * {
+        margin: 0.2rem;
+    }
+    .miNombre{
+        font-size: 2rem;
+    }
+    .descripcion, .misPreferencias {
+        font-size: 0.9rem;
+    }
+
+    .micorreo, .micorreo a{
+        /* background-color: red; */
+        font-size: 0.7rem;
+    }
+}
