@@ -1,0 +1,13 @@
+{
+    "nombre":"Ismael Guerrero",
+    "descripcion": "Tengo 23 años y estoy en el octavo semestre de la licenciatura en Computación en la Universidad Central de Venezuela. Actualmente, me apasiona el desarrollo web y la inteligencia artificial. Además, desempeño el cargo de presidente adjunto en el Centro de Estudiantes de Computación. Desde el año pasado, también formo parte del grupo de baile 'Baila Ciencias' de la Facultad de Ciencias de la U.C.V.",
+     "color": "Azul",
+     "libro" : ["Habitos Atomicos"],
+     "musica" : ["Salsa"],
+     "video_juego": ["The Legend of Zelda y Pokemon"],
+     "lenguajes":["c++","python","HTML","CSS","JavaScript"],
+     "email":"ismaelguerrero2020@gmail.com",
+     "ci": "29083233",
+     "genero":"masculino", 
+     "fecha_nacimiento":"30/09/2000"
+ }
