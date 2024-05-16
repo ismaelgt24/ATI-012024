@@ -91,7 +91,7 @@ nav ul{
 .perfil{
     color: #8DACE9;
     /* display: inline-block; */
-    font-size: 17px;
+    font-size: 11.5px;
     text-align: center;
     background-color: #F5F5F5;
     box-shadow: gray 2px 2px 2px;
@@ -111,6 +111,12 @@ nav ul{
     background-color: #99c5dd;
 }
 
+/* Estilo agregado para el mensaje de error al insertar nombre sin coincidencias: */
+#mensajeErrorBusqueda{
+    font-size: 20px;
+    color: #8DACE9;
+    margin: 15px;
+}
 
 /* Adaptaciones al tamaño de la pantalla con media Query's: */
 /*Pantallas grandes & ordenadores de escritorio */
