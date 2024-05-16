@@ -1,6 +1,7 @@
 //Definimos una funcion para crear un elemento perfil dado un objeto json
 var crearPerfil = a => {
     //Creamos un div y  lo establecemos en la clase perfil:
+
     var perfil = document.createElement("div")
     perfil.setAttribute("class","perfil")
 
