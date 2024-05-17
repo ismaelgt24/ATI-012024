@@ -21,8 +21,12 @@ var crearPerfil = a => {
     perfil.appendChild(nombrePerfil)
 
     //Colocamos el perfil creado como adentro de un enlace a perfil pasando la ci como parametro:
+    //buscamos el idioma pasado por URLparams y colocamos el contenido del sitio:
+    const urlSearchParams = new URLSearchParams(window.location.search)
+    const lang = urlSearchParams.get("lang") || "es"//Usaremos este parametro para pasar el idioma ya que es el estandar
+    console.log("AQUIII"+lang)
     var link = document.createElement("a")
-    link.setAttribute("href",`perfil.html?ci=${a.ci}`)
+    link.setAttribute("href",`perfil.html?ci=${a.ci}&lang=${lang}`)
     link.appendChild(perfil)
     return link;
 }
@@ -37,12 +41,100 @@ var llenarGrilla = Arr => {
         listadoPerfiles.appendChild(perfil);
     });
 }
+//Funcion para colocar el contenido de los elementos del sitio segun el idioma pasado por parametros
+var actualizarIdioma = lang => {
 
+    switch(lang){
+        case "ES"://Idioma Español
+            fetch("reto5\\conf\\configES.json")
+            .then(Lectura => Lectura.json())
+            .then(Contenido => {
+
+                //Acomodamos el nombre de la materia:
+                materia = document.getElementsByClassName("materia")[0]
+                materia.innerHTML = `<li> ${Contenido.sitio[0]}<sub>${Contenido.sitio[1]}</sub> ${Contenido.sitio[2]}</li>`
+
+                //Acomodamos el saludo
+                saludo = document.getElementsByClassName("saludo")[0]
+                liSaludo = document.createElement("li")
+                liSaludo.appendChild(document.createTextNode(Contenido.saludo+" Ismael Guerrero"))
+                saludo.appendChild(liSaludo)
+                //Acomodamos del boton de la barra de busqueda
+                botonBuscar = document.getElementById("botonBusqueda")
+                botonBuscar.appendChild(document.createTextNode(Contenido.buscar))
+
+                //Acomodamos el boton de l abarra de busqueda
+                barraBusqueda = document.getElementById("barraDeBusqueda")
+                barraBusqueda.setAttribute("placeholder",Contenido.nombre)
+                //Acomodamos el footer
+                myFooter = document.getElementById("copyRight")
+                myFooter.appendChild(document.createTextNode(Contenido.copyRight))
+            })
+            break;
+        case "EN"://Idioma ingles
+            fetch("reto5\\conf\\configEN.json")
+            .then(Lectura => Lectura.json())
+            .then(Contenido => {
+
+                //Acomodamos el nombre de la materia:
+                materia = document.getElementsByClassName("materia")[0]
+                materia.innerHTML = `<li> ${Contenido.sitio[0]}<sub>${Contenido.sitio[1]}</sub> ${Contenido.sitio[2]}</li>`
+
+                //Acomodamos el saludo
+                saludo = document.getElementsByClassName("saludo")[0]
+                liSaludo = document.createElement("li")
+                liSaludo.appendChild(document.createTextNode(Contenido.saludo+" Ismael Guerrero"))
+                saludo.appendChild(liSaludo)
+                //Acomodamos del boton de la barra de busqueda
+                botonBuscar = document.getElementById("botonBusqueda")
+                botonBuscar.appendChild(document.createTextNode(Contenido.buscar))
+
+                //Acomodamos el boton de l abarra de busqueda
+                barraBusqueda = document.getElementById("barraDeBusqueda")
+                barraBusqueda.setAttribute("placeholder",Contenido.nombre)
+                //Acomodamos el footer
+                myFooter = document.getElementById("copyRight")
+                myFooter.appendChild(document.createTextNode(Contenido.copyRight))
+            })
+            break;
+        case "PT"://Idioma Portugues (Brazil)
+            fetch("reto5\\conf\\configPT.json")
+            .then(Lectura => Lectura.json())
+            .then(Contenido => {
+
+                //Acomodamos el nombre de la materia:
+                materia = document.getElementsByClassName("materia")[0]
+                materia.innerHTML = `<li> ${Contenido.sitio[0]}<sub>${Contenido.sitio[1]}</sub> ${Contenido.sitio[2]}</li>`
+
+                //Acomodamos el saludo
+                saludo = document.getElementsByClassName("saludo")[0]
+                liSaludo = document.createElement("li")
+                liSaludo.appendChild(document.createTextNode(Contenido.saludo+" Ismael Guerrero"))
+                saludo.appendChild(liSaludo)
+                //Acomodamos del boton de la barra de busqueda
+                botonBuscar = document.getElementById("botonBusqueda")
+                botonBuscar.appendChild(document.createTextNode(Contenido.buscar))
+
+                //Acomodamos el boton de l abarra de busqueda
+                barraBusqueda = document.getElementById("barraDeBusqueda")
+                barraBusqueda.setAttribute("placeholder",Contenido.nombre)
+                //Acomodamos el footer
+                myFooter = document.getElementById("copyRight")
+                myFooter.appendChild(document.createTextNode(Contenido.copyRight))
+            })
+            break;
+    }
+}
 
 //Con el uso de este evento pemitimos que el codigo se ejecute despues de que el sitio haya cargado completamente
 window.addEventListener('load', function() {
+    //buscamos el idioma pasado por URLparams y colocamos el contenido del sitio:
+    const urlSearchParams = new URLSearchParams(window.location.search)
+    const lang = urlSearchParams.get("lang") || "es"//Usaremos este parametro para pasar el idioma ya que es el estandar
+    //console.log("AQUIII"+lang)
+    actualizarIdioma(lang)
 
-    //Captamos los objetos en el archivo y llenamos la grilla inicialmente
+    //Captamos los objetos en el archivo index.json y llenamos la grilla con los objetos presentes en el:
     fetch("reto5\\datos\\index.json")
     .then(Lectura => Lectura.json())//Los convertimos en objetos
     .then( Alumnos => {
@@ -50,6 +142,9 @@ window.addEventListener('load', function() {
     })
     .catch(error => console.error('Hubo un error cargando el archivo index.json', error));
 
+    //Esta funcion se ejecuta al presionar el boton buscar
+    //Esta funcion lista a todos los estudiantes cuyo nombres contienen la cadena escrita.
+    //Si no se insertado nada se listaran todos los alumnos:
     busquedaBoton = () => {
         //Leemos el archivo JSON de nuevo
         fetch("reto5\\datos\\index.json")
