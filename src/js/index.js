@@ -20,7 +20,11 @@ var crearPerfil = a => {
     perfil.appendChild(imagenPerfil)
     perfil.appendChild(nombrePerfil)
 
-    return perfil;
+    //Colocamos el perfil creado como adentro de un enlace a perfil pasando la ci como parametro:
+    var link = document.createElement("a")
+    link.setAttribute("href",`perfil.html?ci=${a.ci}`)
+    link.appendChild(perfil)
+    return link;
 }
 
 //Funcion para llenar la grilla dada un arreglo de objetos:

@@ -12,6 +12,11 @@
     flex-direction: column;
 }
 
+.index .main a{
+    /* reset: none; */
+    text-decoration: none;
+}
+
 footer{
     height: 70px;
     width: 100%;
@@ -301,11 +306,11 @@ nav ul{
 }
 
 /* Estilos para el enlace al correo */
-a {
+#CorreoContacto {
     /* enlace sin clickear */
     color: orange;
 }
-a:visited {
+#CorreoContacto:visited {
     /*Enlace Clickeado */
     color: red;
 }

@@ -4,9 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- <script src="reto05/conf/configES.json"></script> -->
-        <title><!--Ismael Guerrero--></title>
-        <!-- <script src="js/index.js"></script> -->
+        <title></title>
+        <script src="js/perfil.js"></script>
     </head>
     <body>
         <div class="tarjeta">
@@ -20,41 +19,24 @@
 
                 <section class="misPreferencias">
                     <div class="apartadoPreferencia">
-                        <p>
-                            <!-- Mi color favorito es:<br>
+                        <p id="TitulosPreferencias">
+                            Mi color favorito es:<br>
                             Mi libro favorito es:<br>
                             Mi estilo de musica favorita es:<br>
                             Video juegos favoritos:<br>
-                            Lenguajes aprendidos:<br> -->
+                            Lenguajes aprendidos:<br>
                         </p>
                     </div>
                     <div class="apartadoPreferencia">
-                        <p>
-                            <!-- Azul.<br>
-                            Habitos Atomicos.<br>
-                            Salsa.<br>
-                            The Legend of Zelda y Pokemon.<br>
-                            C++, Python, HTML, CSS y JavaScript.<br> -->
+                        <p id="ContenidoPreferencias">
                         </p>
                     </div>
                 </section>
                 <p class="micorreo">
-                    <!-- Si necesitan comunicarse conmigo me pueden escribir a  -->
-                    <a class="CorreoContacto" href="#"><!--ismaelguerrero2020@gmail.com--></a></p>
+                    Si necesitan comunicarse conmigo me pueden escribir a 
+                    <a id="CorreoContacto" href="#"><!--ismaelguerrero2020@gmail.com--></a></p>
             </div>
             
         </div>
-        <script>
-            var mensajeDeContacto = document.getElementsByClassName("micorreo")[0];
-            var contenido = document.createTextNode("Si necesitan comunicarse conmigo me pueden escribir a");
-            mensajeDeContacto.appendChild(contenido);
-            var email = document.createElement("a");
-            email.setAttribute("class","CorreoContacto");
-            email.setAttribute("href","#");
-            contenido = document.createTextNode("ismaelguerrero2020@gmail.com");
-            email.appendChild(contenido);
-            mensajeDeContacto.appendChild(email);
-            
-        </script>
     </body>
 </html>
