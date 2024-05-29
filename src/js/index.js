@@ -130,7 +130,7 @@ var actualizarIdioma = lang => {
 window.addEventListener('load', function() {
     //buscamos el idioma pasado por URLparams y colocamos el contenido del sitio:
     const urlSearchParams = new URLSearchParams(window.location.search)
-    const lang = urlSearchParams.get("lang") || "es"//Usaremos este parametro para pasar el idioma ya que es el estandar
+    const lang = urlSearchParams.get("lang") || "ES"//Usaremos este parametro para pasar el idioma ya que es el estandar
     //console.log("AQUIII"+lang)
     actualizarIdioma(lang)
 
