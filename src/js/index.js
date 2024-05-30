@@ -131,8 +131,8 @@ window.addEventListener('load', function() {
     //buscamos el idioma pasado por URLparams y colocamos el contenido del sitio:
     const urlSearchParams = new URLSearchParams(window.location.search)
     const lang = urlSearchParams.get("lang") || "ES"//Usaremos este parametro para pasar el idioma ya que es el estandar
-    //console.log("AQUIII"+lang)
-    actualizarIdioma(lang)
+    console.log("AQUIIIIIIII"+lang)
+    actualizarIdioma(lang.toUpperCase())
 
     //Captamos los objetos en el archivo index.json y llenamos la grilla con los objetos presentes en el:
     fetch("reto5\\datos\\index.json")

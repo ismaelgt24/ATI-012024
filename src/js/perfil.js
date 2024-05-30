@@ -55,7 +55,7 @@ window.addEventListener('load', function() {
     const lang = urlSearchParams.get("lang") || "es"//Usaremos este parametro para pasar el idioma ya que es el estandar
     console.log(lang)
     console.log(lang)
-    actualizarIdioma(lang)
+    actualizarIdioma(lang.toUpperCase())
 
     const estudianteCI = urlSearchParams.get("ci")
 
