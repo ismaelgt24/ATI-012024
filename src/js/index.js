@@ -132,13 +132,13 @@ window.addEventListener('load', function() {
     const urlSearchParams = new URLSearchParams(window.location.search)
     const lang = urlSearchParams.get("lang") || "ES"//Usaremos este parametro para pasar el idioma ya que es el estandar
     console.log("AQUIIIIIIII"+lang)
-    actualizarIdioma(lang.toUpperCase())
+    //actualizarIdioma(lang.toUpperCase())
 
     //Captamos los objetos en el archivo index.json y llenamos la grilla con los objetos presentes en el:
     fetch("reto5\\datos\\index.json")
     .then(Lectura => Lectura.json())//Los convertimos en objetos
     .then( Alumnos => {
-        llenarGrilla(Alumnos)
+        //llenarGrilla(Alumnos)
     })
     .catch(error => console.error('Hubo un error cargando el archivo index.json', error));
 

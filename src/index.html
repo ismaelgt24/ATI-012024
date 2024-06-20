@@ -7,30 +7,43 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Document</title>
     <script src="js/index.js"></script>
-
 </head>
 <body>
     <header>
         <nav>
             <ul class="materia">
-                <!-- <li>ATI<sub>[UCV]</sub> 2024-1</li> -->
+                <li>{{ sitio[0] }}<sub>{{ sitio[1] }}</sub> {{ sitio[2] }}</li>
             </ul>
             <ul class="saludo">
-                <!-- <li>Hola, Ismael Guerrero</li> -->
+                <li>{{ saludo }}, Ismael</li>
             </ul>
             <ul class="busqueda">
-                <li><input id="barraDeBusqueda" type="text" placeholder=""><button id="botonBusqueda" type="submit" onclick="busquedaBoton()"></button></li>
+                <li>
+                    <input id="barraDeBusqueda" type="text" placeholder="{{ nombre }}">
+                    <button id="botonBusqueda" type="submit" onclick="busquedaBoton()">"{{ buscar }}"</button>
+                </li>
             </ul>
         </nav>
     </header>
     <div class="main">
+        <!-- Puedes agregar más contenido aquí -->
+         
+        {% for persona in grilla %}
+        <a>
+            <div class="perfil">
+                <img class='fotografia' height="100" src="{{ persona.imagen }}" alt="Imagen de perfil">
+                <p>{{ persona.nombre }}</p>
+            </div>
+        </a>
+        {% endfor %}
+
 
     </div>
     <footer id="copyRight">
-        <!-- Copyright © 2024 Escuela de computación -
-        ATI. Todos los derechos reservados -->
+        {{ copyRight }}
     </footer>
-    </body>
+</body>
+</html>
 
     
 </html>
