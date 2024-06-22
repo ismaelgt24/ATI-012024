@@ -7,7 +7,6 @@ from wsgiref.simple_server import make_server
 # Ruta base del proyecto, esta es la ubicacion raiz del programa en ejecucion:
 RutaActual = os.path.dirname(os.path.abspath(__file__))
 
-
 def application(environ, start_response):
     # Rutas de archivos a servir para las posibles peticiones
     #en la ejecucion del codigo del sitio:
@@ -115,7 +114,7 @@ def application(environ, start_response):
         #Como plantilla y no como un hypertexto normal.
         plantillaLoader = Environment(loader=FileSystemLoader(RutaActual))
         #Llenamos la plantilla del index:
-        template = plantillaLoader.get_template("index.html")
+        template = plantillaLoader.get_template("plantilla_index.html")
         response_body = template.render(data)
         
         # Retornamos una respuesta exitosa!
@@ -125,13 +124,14 @@ def application(environ, start_response):
         
         # La función debe devolver una lista de bytes
         return [response_body.encode("utf-8")]
+        #return [b'Mi respuesta con cookie']
 
 
 #Esto es para probar el archivo fuera de Docker!!
 #Se ejecuta el script y entramos a: http://localhost:8000/?lang=en
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Crear el servidor WSGI en el puerto 8000
-    with make_server("", 8000, application) as server:
-        print("Sirviendo en el puerto 8000...")
+#    with make_server("", 8000, application) as server:
+#        print("Sirviendo en el puerto 8000...")
         # Ejecutar el servidor indefinidamente
-        server.serve_forever()
+#        server.serve_forever()
