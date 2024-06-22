@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-ES" class="index">
+<html lang="es-ES" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +9,72 @@
     <script src="js/index.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="materia">
-                <li>{{ sitio[0] }}<sub>{{ sitio[1] }}</sub> {{ sitio[2] }}</li>
-            </ul>
-            <ul class="saludo">
-                <li>{{ saludo }}, Ismael</li>
-            </ul>
-            <ul class="busqueda">
-                <li>
-                    <input id="barraDeBusqueda" type="text" placeholder="{{ nombre }}">
-                    <button id="botonBusqueda" type="submit" onclick="busquedaBoton()">"{{ buscar }}"</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <div class="main">
-        <!-- Puedes agregar más contenido aquí -->
-         
-        {% for persona in grilla %}
-        <a>
-            <div class="perfil">
-                <img class='fotografia' height="100" src="{{ persona.imagen }}" alt="Imagen de perfil">
-                <p>{{ persona.nombre }}</p>
-            </div>
-        </a>
-        {% endfor %}
+    <div class="index" id="grilla">
+        <header>
+            <nav>
+                <ul class="materia">
+                    <li>{{ sitio[0] }}<sub>{{ sitio[1] }}</sub> {{ sitio[2] }}</li>
+                </ul>
+                <ul class="saludo">
+                    <li>{{ saludo }}, Ismael</li>
+                </ul>
+                <ul class="busqueda">
+                    <li>
+                        <input id="barraDeBusqueda" type="text" placeholder="{{ nombre }}">
+                        <button id="botonBusqueda" type="submit" onclick="busquedaBoton()">"{{ buscar }}"</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="main">
+            <!-- Puedes agregar más contenido aquí -->
+            
+            {% for persona in grilla %}
+            <a href="#PerfilSPA?ci={{persona.ci}}&lang={{lang}}">
+                <div class="perfil">
+                    <img class='fotografia' height="100" src="{{ persona.imagen }}" alt="Imagen de perfil">
+                    <p>{{ persona.nombre }}</p>
+                </div>
+            </a>
+            {% endfor %}
 
 
+        </div>
+        <footer id="copyRight">
+            {{ copyRight }}
+        </footer>
     </div>
-    <footer id="copyRight">
-        {{ copyRight }}
-    </footer>
-</body>
-</html>
-
+    <div id="PerfilSPA">
+        <body>
+            <div class="tarjeta">
+                <img class="MiFoto" src="reto5\28073233\28073233.jpg"/>
+                <div class="MisDatos">
+                    <h1 class="miNombre"><!--Ismael Guerrero--></h1>
+                    <p class="descripcion">
+                        <!-- Tengo 23 años y estoy en el octavo semestre de la licenciatura en Computación en la Universidad Central de Venezuela. Actualmente, me apasiona el desarrollo web y la inteligencia artificial. Además, desempeño el cargo de presidente adjunto en el Centro de Estudiantes de Computación. Desde el año pasado, también formo parte del grupo de baile 'Baila Ciencias' de la Facultad de Ciencias de la U.C.V. -->
+                    </p>
     
+                    <section class="misPreferencias">
+                        <div class="apartadoPreferencia">
+                            <p id="TitulosPreferencias">
+                                {{color}}<br>
+                                {{libro}}<br>
+                                {{musica}}<br>
+                                {{video_juego}}<br>
+                                {{lenguajes}}<br>
+                            </p>
+                        </div>
+                        <div class="apartadoPreferencia">
+                            <p id="ContenidoPreferencias">
+                            </p>
+                        </div>
+                    </section>
+                    <p class="micorreo">
+                        {{email}}
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+</body>
 </html>

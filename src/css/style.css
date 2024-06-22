@@ -7,7 +7,8 @@
     font-family: Helvetica;
 }
 
-.index body{
+body{
+    margin:0px;
     display: flex;
     flex-direction: column;
 }
@@ -252,6 +253,10 @@ nav ul{
 
 
 /* Estilos para perfil.html */
+
+#PerfilSPA{
+    display: none;
+}
 
 /* Reglas de estilo independientes del tamaño de la pantalla: */
 .tarjeta{
